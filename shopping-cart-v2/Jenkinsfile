@@ -24,5 +24,18 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            environment { QUAY = credentials('QUAY_USER') }
+            steps {
+                dir('shopping-cart-v2') {
+                    script {
+                        def status = sh(
+                            script: "./scripts/tag-exists-in-quay.sh $QUAY_USR/do400-recover latest", 
+                            returnStatus: true
+                        )
+                    }
+                }
+            }
+        }
     }
 }

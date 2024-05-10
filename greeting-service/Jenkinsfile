@@ -26,8 +26,7 @@ pipeline{
                 sh '''
                 oc project nidkfe-deploy-strategies
                 oc start-build greeting-service --follow --wait
-                '''
-                        
+                '''                        
             }
         }
     }

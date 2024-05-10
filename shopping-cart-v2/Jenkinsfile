@@ -1,6 +1,6 @@
 pipeline {
     agent { node { label 'maven' } }
-    environment { APP_NAMESPACE = 'nidfke-recover' }
+    environment { APP_NAMESPACE = 'nidkfe-recover' }
     parameters {
         string(name: 'DEPLOY_TAG', description: 'Deploy to Tag')
     }

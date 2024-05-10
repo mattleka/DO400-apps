@@ -3,6 +3,10 @@ pipeline{
         label "nodejs"
     }
     stages{
+        stage("Prep for per-dir Jenkinsfile") {
+             checkout(scm)
+            sh 'git clean -fdx'
+        }
         stage("Install dependencies"){
             steps{
                 sh "npm ci"
